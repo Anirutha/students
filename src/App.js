@@ -18,12 +18,6 @@ function App() {
   const navigate=useNavigate();
   
   useEffect(()=>{
-    if(!localStorage.getItem("token")){
-      navigate("/login",{replace:true})
-    }
-  })
-
-  useEffect(()=>{
     const getStudents = async () =>{
         const response = await fetch("https://644b33bc4bdbc0cc3a8ce28c.mockapi.io/users", {
           method:"GET",
