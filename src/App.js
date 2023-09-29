@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes} from 'react-router-dom';
 import './App.css';
 import AddStudents from './Components/AddStudents';
 import AddTeachers from './Components/AddTeachers';
@@ -15,7 +15,6 @@ import UpdateTeachers from './Components/UpdateTeachers';
 function App() {
   const [students, setStudents] = useState([]);
   const [teachers,setTeachers]=useState([]);
-  const navigate=useNavigate();
   
   useEffect(()=>{
     const getStudents = async () =>{
@@ -27,11 +26,9 @@ function App() {
           setStudents(data)
         }
     }
-    if(!localStorage.getItem("token")){
-      navigate("/login")
-    }else{
+    
       getStudents();
-    }
+    
     
   }, )
 
